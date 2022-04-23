@@ -1,0 +1,49 @@
+import math
+import sys
+import pygame
+
+def game():
+    pygame.init()
+    clock = pygame.time.Clock()
+
+    white = (255,255,255)
+    black = (0,0,0)
+    purple = (127, 84, 253)
+
+    running = True       
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                break
+                running = False
+
+        player_x = 12
+        player_y = 12
+        velocity = 10
+
+        surface = pygame.display.set_mode((400,400))    
+        player = pygame.Rect(player_x,player_y,20,20)
+
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_w]:player.y-=50
+        if keys[pygame.K_a]:player.x-=50
+        if keys[pygame.K_s]:player.y+=50
+        if keys[pygame.K_d]:player.x+=50
+        if keys[pygame.K_ESCAPE]:pygame.quit()
+                
+        
+
+        pygame.display.flip()
+        
+        pygame.display.update()
+
+        surface.fill((255, 255, 255))
+
+        clock.tick(40)
+
+
+    pygame.quit()
+
+
+game()```
+
